@@ -1,0 +1,9 @@
+{
+  "name": "stray-diary-port-build",
+  "private": true,
+  "version": "0.1.0",
+  "dependencies": {
+    "browserify": "17.0.1",
+    "terser": "5.44.0"
+  }
+}

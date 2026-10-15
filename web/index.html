@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#eeeeee">
+  <title>流浪日记</title>
+  <link rel="icon" href="data:,">
+  <style>
+    html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#222;overscroll-behavior:none}
+    body{font-family:system-ui,"Microsoft YaHei",sans-serif;touch-action:none}
+    #GameFrame{position:absolute;inset:34px 0 0;display:flex;align-items:center;justify-content:center}
+    #GameDiv{position:relative;overflow:hidden;flex:none}
+    #GameCanvas{display:block;outline:none;touch-action:none}
+    #splash{position:absolute;inset:0;z-index:10;background:#222 url('startup-menu.png') center/100% 100% no-repeat;display:block!important;color:#333}
+    .startup-ready #splash{display:none!important}
+    .progress-bar{display:none}
+    #port-bar{position:fixed;top:0;left:0;right:0;height:34px;box-sizing:border-box;background:#f4f4f4;color:#555;z-index:20;border-bottom:1px solid #ccc;font-size:12px;padding:8px 12px}
+    #port-menu{position:absolute;top:0;right:6px;z-index:20}
+    #menu-toggle{border:0;background:transparent;color:#444;font-size:13px;padding:8px 10px;cursor:pointer}
+    #menu-panel{position:absolute;right:0;top:35px;width:180px;background:#fff;border:1px solid #bbb;border-radius:8px;box-shadow:0 4px 20px #0003;padding:8px;display:none}
+    #menu-panel button{display:block;width:100%;border:0;border-radius:4px;background:#f0f0f0;color:#222;padding:10px 5px;font:14px inherit;margin:4px 0;cursor:pointer}
+    #menu-panel small{display:block;color:#777;font-size:11px;line-height:1.6;padding:4px}
+    #port-status{position:fixed;z-index:30;bottom:30px;left:50%;transform:translateX(-50%);max-width:85vw;background:#222e;color:white;border-radius:6px;padding:10px 14px;display:none;font-size:14px}
+    #fatal{position:absolute;left:5%;right:5%;bottom:20px;background:#fffe;padding:14px;white-space:pre-wrap;font-size:13px;max-height:50vh;overflow:auto;letter-spacing:0}
+  </style>
+</head>
+<body>
+  <div id="GameFrame"><div id="GameDiv"><canvas id="GameCanvas" tabindex="0" style="visibility:hidden"></canvas>
+    <div id="splash" aria-label="游戏正在准备"><div class="progress-bar"><span></span></div><p id="fatal" hidden></p></div>
+  </div></div>
+  <div id="port-bar">流浪日记<div id="port-menu">
+    <button id="menu-toggle" type="button" aria-expanded="false">存档</button>
+    <div id="menu-panel">
+      <button id="export-save" type="button">导出存档</button>
+      <button id="import-save" type="button">导入存档</button>
+      <small>电脑和手机可通过存档文件接续游玩。导入将覆盖当前进度。</small>
+    </div>
+  </div></div>
+  <input id="save-file" type="file" accept="application/json,.json" hidden>
+  <div id="port-status" role="status"></div>
+  <script src="port.js"></script>
+  <script src="src/settings.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

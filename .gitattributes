@@ -1,0 +1,8 @@
+* text=auto
+# Keep original packaged game files byte-for-byte, including their line endings.
+web/** -text
+*.png binary
+*.jpg binary
+*.apk binary
+*.exe binary
+*.zip binary
